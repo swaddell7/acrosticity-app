@@ -9,6 +9,7 @@ class Letter extends Component {
     }
   }
 
+  //set state of letter input form field on change
   handleChange(event) {
     this.setState({ id: event.target.value })
   }
