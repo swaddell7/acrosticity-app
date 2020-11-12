@@ -23,6 +23,10 @@ class App extends Component {
     this.setState({ letters: this.state.letters + 1 })
   }
 
+  removeLetter() {
+    this.setState ({ letters: this.state.letters - 1 })
+  }
+
   render() {
     return (
       <div className="App">
