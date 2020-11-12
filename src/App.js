@@ -19,6 +19,10 @@ class App extends Component {
     }
   }
 
+  addLetter() {
+    this.setState({ letters: this.state.letters + 1 })
+  }
+
   render() {
     return (
       <div className="App">
