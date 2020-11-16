@@ -25,7 +25,7 @@ class App extends Component {
     return (
       <>
         <Letter />
-        <AddLetterButton />
+        <AddLetterButton onClick={this.addLetter}/>
         <RemoveLetterButton />
         <GenerateButton />
       </>

@@ -1,15 +1,26 @@
 import React, {Component} from 'react';
 
-class AddLetterButton extends Component {
+class App extends Component {
+
+  constructor(props) {
+    super(props);
+  }
+
+  addLetter() {
+    this.setState({ letters: this.state.letters + 1 })
+  }
+
+  removeLetter() {
+    this.setState ({ letters: this.state.letters - 1 })
+  }
 
   render() {
     return (
       <div>
-        <button>+</button>
+        <button onClick={() => this.props.onClick()}>+</button>
       </div>
-    )
+    );
   }
-
 }
 
-export default AddLetterButton;
+export default App;
