@@ -1,8 +1,4 @@
 import './App.css';
-import Letter from './Letter';
-import AddLetterButton from './AddLetterButton';
-import RemoveLetterButton from './RemoveLetterButton';
-import GenerateButton from './GenerateButton';
 import AcrosticContainer from './AcrosticContainer';
 
 

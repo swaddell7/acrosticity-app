@@ -4,7 +4,7 @@ import AddLetterButton from './AddLetterButton';
 import RemoveLetterButton from './RemoveLetterButton';
 import GenerateButton from './GenerateButton';
 
-class App extends Component {
+class AcrosticContainer extends Component {
 
   constructor(props) {
     super(props);
@@ -13,24 +13,31 @@ class App extends Component {
     }
   }
 
-  addLetter() {
+  addLetter = () => {
     this.setState({ letters: this.state.letters + 1 })
   }
 
-  removeLetter() {
+  removeLetter = () => {
     this.setState ({ letters: this.state.letters - 1 })
   }
+
+  
+  // renderLetters() {
+  //   for (let letters = 0; letters < this.state.letters; letters++) {
+  //     return <Letter />
+  //   }
+  // }
 
   render() {
     return (
       <>
         <Letter />
-        <AddLetterButton onClick={this.addLetter}/>
-        <RemoveLetterButton />
+        <AddLetterButton onClick={ this.addLetter }/>
+        <RemoveLetterButton onClick={ this.removeLetter }/>
         <GenerateButton />
       </>
     );
   }
 }
 
-export default App;
+export default AcrosticContainer;

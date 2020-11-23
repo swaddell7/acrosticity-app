@@ -5,7 +5,7 @@ class RemoveLetterButton extends Component {
   render() {
     return (
       <div>
-        <button>-</button>
+        <button onClick={ this.props.onClick }>-</button>
       </div>
     )
   }
