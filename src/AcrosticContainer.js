@@ -23,7 +23,10 @@ class AcrosticContainer extends Component {
           wordData={this.state}
           handleChange={this.handleChange}
         />
-        <DisplayPoem wordData={this.state}/>
+        <DisplayPoem
+          wordData={this.state}
+          handleChange={this.handleChange}
+        />
       </>
     );
   }
