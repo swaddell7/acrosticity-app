@@ -1,40 +1,29 @@
 import React, {Component} from 'react';
-import Letter from './Letter';
-import AddLetterButton from './AddLetterButton';
-import RemoveLetterButton from './RemoveLetterButton';
-import GenerateButton from './GenerateButton';
+import WordForm from './WordForm';
+import DisplayPoem from './DisplayPoem';
 
 class AcrosticContainer extends Component {
 
-  constructor(props) {
-    super(props);
-    this.state = {
-      letters: 1
-    }
+  state = {
+    word: '',
+    letters: []
   }
 
-  addLetter = () => {
-    this.setState({ letters: this.state.letters + 1 })
+  handleChange = event => {
+    this.setState({
+      word: event.target.value,
+      letters: event.target.value.split('')
+    })
   }
-
-  removeLetter = () => {
-    this.setState ({ letters: this.state.letters - 1 })
-  }
-
-  
-  // renderLetters() {
-  //   for (let letters = 0; letters < this.state.letters; letters++) {
-  //     return <Letter />
-  //   }
-  // }
 
   render() {
     return (
       <>
-        <Letter />
-        <AddLetterButton onClick={ this.addLetter }/>
-        <RemoveLetterButton onClick={ this.removeLetter }/>
-        <GenerateButton />
+        <WordForm 
+          wordData={this.state}
+          handleChange={this.handleChange}
+        />
+        <DisplayPoem wordData={this.state}/>
       </>
     );
   }

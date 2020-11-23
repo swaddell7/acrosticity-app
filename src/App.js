@@ -10,7 +10,9 @@ import AcrosticContainer from './AcrosticContainer';
 function App() {
   return (
     <div className="App">
-      <header className="App-header">ACROSTICITY</header>
+      <header className="App-header">
+        <h1>ACROSTICITY</h1>
+      </header>
       <AcrosticContainer />
     </div>
   );
