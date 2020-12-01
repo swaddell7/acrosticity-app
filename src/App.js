@@ -1,21 +1,60 @@
+import React, { useEffect, useState } from "react";
+import Recipe from './Recipe';
 import './App.css';
-import AcrosticContainer from './AcrosticContainer';
+
+const App = () => {
+    const APP_ID = "43ef7cbe";
+    const APP_KEY = "e49db6291a41542b15dfff3739e935e3";
+
+    const [recipes, setRecipes] = useState([]);
+    const [search, setSearch] = useState('');
+    const [query, setQuery] = useState('');
+
+    useEffect( () => {
+      getRecipes();
+    }, [query]);
+
+    const getRecipes = async () => {
+      const response = await fetch(`https://api.edamam.com/search?q=${query}&app_id=${APP_ID}&app_key=${APP_KEY}`);
+      const data = await response.json();
+      setRecipes(data.hits);
+      console.log(data.hits);
+    }
+
+    const updateSearch = e => {
+      setSearch(e.target.value);
+      console.log(search);
+    }
+
+    const getSearch = e => {
+      e.preventDefault();
+      setQuery(search);
+      setSearch('');
+    }
 
 
-//pass down props on add letter button for function to add new letter
-//add state to app class; set letter to 1; write functions to update state for both add and remove letter
-//pass down functions as props on add and remove letter components? or maybe this can all be done in app.js
-//use state to loop through and update how many letter components are displayed on the app
-//for each
-function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>ACROSTICITY</h1>
-      </header>
-      <AcrosticContainer />
+      <h1 className="header">Find Recipes:</h1>
+      <form onSubmit={getSearch} className="search-form">
+        <input className="search-bar" type="text" value={search} onChange={updateSearch}/>
+        <button className="search-button" type="submit">Search</button>
+      </form>
+      <div className="recipes">
+        {recipes.map(recipe =>(
+          <Recipe
+          key={recipe.recipe.label}
+          title={recipe.recipe.label}
+          calories={Math.round(recipe.recipe.calories/recipe.recipe.yield)}
+          img={recipe.recipe.image}
+          ingredients={recipe.recipe.ingredients}
+          servings={recipe.recipe.yield}
+          url={recipe.recipe.url}
+          />
+        ))}
+      </div>
     </div>
-  );
+  )
 }
 
 export default App;
