@@ -14,4 +14,4 @@
 
 * CSS was used to help with styling.
 
-Video Walkthrough: https://youtu.be/_0hLQohmqPg
+Video Walkthrough: https://youtu.be/7xNv5v-F1cA
